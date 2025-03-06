@@ -1,0 +1,24 @@
+.navbar {
+  padding: 0 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: white;
+}
+
+/* Style cho coming soon trong navbar */
+.coming-soon {
+  text-align: center;
+  padding: 20px;
+}
+
+.coming-soon img {
+  max-width: 300px;
+  margin: 20px auto;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 10px;
+  }
+} 

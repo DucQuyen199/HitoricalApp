@@ -1,0 +1,352 @@
+/* Reset & Base styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+}
+
+/* Layout styles */
+.ant-layout {
+  min-height: 100vh;
+}
+
+.ant-layout-content {
+  padding-top: 64px; /* Chiều cao của navbar */
+  min-height: calc(100vh - 64px); /* Đảm bảo content luôn full height */
+}
+
+/* Navbar styles */
+.header {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 64px;
+  background: linear-gradient(90deg, #1a237e 0%, #283593 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.logo-icon {
+  font-size: 24px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: linear-gradient(120deg, #fff, #e3f2fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+/* Menu styles */
+.ant-menu {
+  background: transparent !important;
+  border-bottom: none !important;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  line-height: 64px;
+  margin-left: 40px;
+}
+
+.ant-menu-item {
+  padding: 0 16px !important;
+  margin: 0 4px !important;
+  height: 64px !important;
+  line-height: 64px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-menu-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.ant-menu-item:hover::after {
+  width: 80%;
+}
+
+.ant-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 6px 6px 0 0;
+  color: #fff !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 6px 6px 0 0 !important;
+}
+
+.ant-menu-item-selected::after {
+  width: 80%;
+}
+
+.ant-menu-item .anticon {
+  font-size: 18px;
+  margin-right: 8px;
+  transition: all 0.3s ease;
+}
+
+.ant-menu-item:hover .anticon {
+  transform: translateY(-2px);
+}
+
+.dropdown-link {
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.dropdown-link:hover {
+  color: #fff;
+}
+
+/* Dropdown menu styles */
+.ant-dropdown {
+  animation: slideDown 0.3s ease;
+}
+
+.ant-dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 4px;
+}
+
+.ant-dropdown-menu-item {
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.ant-dropdown-menu-item:hover {
+  background-color: #f0f2f5;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+}
+
+.menu-btn {
+  color: white !important;
+  font-size: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 16px;
+  }
+
+  .logo {
+    min-width: auto;
+  }
+
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .ant-menu {
+    margin-left: 0;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: #1a237e !important;
+    padding: 8px 16px;
+    display: none;
+  }
+
+  .mobile-visible {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .ant-menu-item {
+    height: 48px !important;
+    line-height: 48px !important;
+    padding: 0 !important;
+    margin: 4px 0 !important;
+  }
+}
+
+/* Thêm media query cho màn hình vừa */
+@media (max-width: 1024px) {
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .ant-menu-item {
+    padding: 0 12px !important;
+  }
+}
+
+/* Adjust content padding for fixed header */
+.ant-layout-content {
+  padding-top: 64px;
+  min-height: calc(100vh - 64px);
+}
+
+.page-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #1890ff 0%, #003a70 100%);
+  padding: 120px 20px 80px;
+  margin-top: -24px; /* Bù trừ padding của page-container */
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+              linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+              linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%),
+              linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.hero-section h1 {
+  font-size: 48px;
+  margin-bottom: 24px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Card styles */
+.feature-card {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+/* Timeline styles */
+.timeline-container {
+  padding: 100px 20px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Chatbot styles */
+.chatbot-container {
+  max-width: 800px;
+  margin: 100px auto 40px;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.chat-input {
+  margin-top: 20px;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  padding: 12px;
+  width: 100%;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.chat-button {
+  margin-top: 16px;
+  height: 40px;
+  padding: 0 24px;
+  font-size: 16px;
+  border-radius: 20px;
+}
+
+/* Search styles */
+.search-container {
+  max-width: 800px;
+  margin: 100px auto 40px;
+  padding: 0 20px;
+}
+
+.search-input {
+  margin-bottom: 24px;
+}
+
+.search-result-card {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+} 
